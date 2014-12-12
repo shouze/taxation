@@ -3,7 +3,7 @@
 /*
  * This file is part of the UCS package.
  *
- * Copyright 2014 Nicolas Macherey (nicolas.macherey@gmail.com)
+ * Copyright 2014 Nicolas Macherey <nicolas.macherey@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace UCS\Component\Taxation;
 /**
  * Tax rate class
  *
- * @author Nicolas Macherey (nicolas.macherey@gmail.com)
+ * @author Nicolas Macherey <nicolas.macherey@gmail.com>
  */
 class TaxRate implements TaxRateInterface
 {
@@ -44,35 +44,39 @@ class TaxRate implements TaxRateInterface
      * @var boolean
      */
     protected $includedInPrice = false;
-    
+
     /**
      * The associated tax model
-     * 
+     *
      * @var TaxModelInterface
      */
     protected $model;
-    
+
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
-    
+
     /**
-     * @param string
+     * {@inheritdoc}
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
+
         return $this;
     }
-    
+
     /**
      * Get tax amount.
      *
      * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->amount;
     }
 
@@ -81,51 +85,54 @@ class TaxRate implements TaxRateInterface
      *
      * @return float
      */
-    public function getAmountAsPercentage() {
+    public function getAmountAsPercentage()
+    {
         return $this->getAmount() * 100.0;
     }
 
     /**
-     * Set tax amount.
-     *
-     * @param float $amount
+     * {@inheritdoc}
      */
-    public function setAmount($amount) {
+    public function setAmount($amount)
+    {
         $this->amount = $amount;
+
         return $this;
     }
 
     /**
-     * Are taxes included in price
-     *
-     * @return Boolean
+     * {@inheritdoc}
      */
-    public function isIncludedInPrice() {
+    public function isIncludedInPrice()
+    {
         return $this->includedInPrice;
     }
 
     /**
-     * Set as included in price or not.
-     *
-     * @param Boolean $includedInPrice
+     * {@inheritdoc}
      */
-    public function setIncludedInPrice($includedInPrice) {
+    public function setIncludedInPrice($includedInPrice)
+    {
         $this->includedInPrice = $includedInPrice;
+
         return $this;
     }
-    
+
     /**
-     * @return TaxModelInterface
+     * {@inheritdoc}
      */
-    public function getTaxModel() {
+    public function getTaxModel()
+    {
         return $this->model;
     }
-    
+
     /**
-     * @param TaxModelInterface $taxModel
+     * {@inheritdoc}
      */
-    public function setTaxModel(TaxModelInterface $model) {
+    public function setTaxModel(TaxModelInterface $model)
+    {
         $this->model = $model;
+
         return $this;
     }
 }

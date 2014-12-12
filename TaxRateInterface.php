@@ -3,7 +3,7 @@
 /*
  * This file is part of the UCS package.
  *
- * Copyright 2014 Nicolas Macherey (nicolas.macherey@gmail.com)
+ * Copyright 2014 Nicolas Macherey <nicolas.macherey@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace UCS\Component\Taxation;
 /**
  * Tax rate class
  *
- * @author Nicolas Macherey (nicolas.macherey@gmail.com)
+ * @author Nicolas Macherey <nicolas.macherey@gmail.com>
  */
 interface TaxRateInterface extends TaxModelAwareInterface
 {
@@ -21,12 +21,14 @@ interface TaxRateInterface extends TaxModelAwareInterface
      * @return string
      */
     public function getName();
-    
+
     /**
-     * @param string
+     * @param string $name
+     *
+     * @return self
      */
     public function setName($name);
-    
+
     /**
      * Get tax amount.
      *
@@ -45,6 +47,8 @@ interface TaxRateInterface extends TaxModelAwareInterface
      * Set tax amount.
      *
      * @param float $amount
+     *
+     * @return self
      */
     public function setAmount($amount);
 
@@ -59,6 +63,8 @@ interface TaxRateInterface extends TaxModelAwareInterface
      * Set as included in price or not.
      *
      * @param Boolean $includedInPrice
+     *
+     * @return self
      */
     public function setIncludedInPrice($includedInPrice);
 }

@@ -3,7 +3,6 @@
     "type": "library",
     "description": "UCS Taxation Component",
     "keywords": ["UCS","Component","Taxation"],
-    "homepage": "http://ucs.nmacherey.com/components/media",
     "license": "MIT",
     "authors": [
         {
@@ -16,7 +15,9 @@
         "php": ">=5.3.2"
     },
     "autoload": {
-        "psr-0": { "UCS\\Component\\Taxation": "" }
-    },
-    "target-dir": "UCS/Component/Taxation"
+        "psr-4": {
+            "UCS\\Component\\Taxation\\": "src",
+            "Tests\\UCS\\Component\\Taxation\\": "test"
+        }
+    }
 }

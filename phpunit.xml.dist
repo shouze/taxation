@@ -13,17 +13,13 @@
 >
     <testsuites>
         <testsuite name="UCS Taxation Component Test Suite">
-            <directory>./Tests/</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./vendor</directory>
-                <directory>./Tests</directory>
-            </exclude>
+            <directory>./tests</directory>
         </whitelist>
     </filter>
 </phpunit>

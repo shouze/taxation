@@ -17,7 +17,7 @@
     "autoload": {
         "psr-4": {
             "UCS\\Component\\Taxation\\": "src",
-            "Tests\\UCS\\Component\\Taxation\\": "test"
+            "Tests\\UCS\\Component\\Taxation\\": "tests"
         }
     }
 }

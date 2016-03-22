@@ -1,26 +1,28 @@
-# Taxation Component
+# UCS Taxation Component
 
-With the Taxation component its possible to handle taxation models and
+The UCS Taxation Component makes it possible to handle taxation models and
 associated tax rates. A TaxModel is a concept that can be associated
-to an other concept and that represents the type of tax being applied
-on this concept. Before being known, the tax rate must be resolved
-using a TaxRateResolverInterface implementation. Which means that the
+to another concept and represents the type of tax being applied
+to this concept. Before being known, the tax rate must be resolved
+using a TaxRateResolverInterface implementation. This means that the
 definitive tax rate can only be known on some business parameters that
 are not known by the component itself.
 
 The tax rate may be statically computed or dynamically determined
-by your application for example by using the currently logged-in
-user's country.
+by your application, for example by using the country of the currently logged-in
+user.
 
 ## Installation
 
-The component can easily be installed by using composer:
+The component is available via composer with the following command:
 
     composer require ucs/taxation
 
-## Usage
+# Basic usage
 
-The first to do is to create a TaxRateResolver that implements the base
+## Implementing a TaxRateResolver
+
+The first thing to do is to create a TaxRateResolver that implements the base
 TaxRateResolverInterface class:
 
     <?php
@@ -67,11 +69,11 @@ TaxRateResolverInterface class:
         }
     }
 
-Any TaxRateAware or taxable objects must implement the "getTaxModel" and "setModel"
-method. The taxable is the only concept able to provide the application with the
-tax model applied to the taxable concept.
+A TaxRateAware or Taxable object must implement the "getTaxModel" and "setModel"
+method. Only a Taxable object can provide the application with the
+tax model applied to the Taxable object.
 
-Once created you can use your brand new resolver to retrieve the proper
+Once created, you can use your brand new resolver to retrieve the proper
 tax rate on your TaxModelAware instances by using the following snippet:
 
     <?php
@@ -86,10 +88,10 @@ tax rate on your TaxModelAware instances by using the following snippet:
 
 ## Implementing your own calculation strategy
 
-UCS Taxation component is bundled with a default calculation strategy that is able
-to deduce the tax value from a price. If the tax value is already included into the
-price it will extract it from the given price parameter. In any other case the price
-is considered tax free. You can implement your own strategy by implementing the
+The UCS Taxation Component is bundled with a default calculation strategy that can
+deduce the tax value from a price. If the tax value is already included into the
+price it will extract it from the given price parameter. In any other case, the price
+is considered to be tax-free. You can implement your own strategy by implementing the
 TaxCalculationStrategyInterface:
 
     <?php
@@ -101,7 +103,7 @@ TaxCalculationStrategyInterface:
     use UCS\Component\Taxation\TaxCalculationStrategyInterface;
 
     /**
-     * Compute tax part of the given price
+     * compute the tax part of the given price
      */
     class CustomTaxCalculationStrategy implements TaxCalculationStrategyInterface
     {
@@ -117,6 +119,8 @@ TaxCalculationStrategyInterface:
             return round($price * $taxRate->getAmount(), 2);
         }
     }
+
+# Tests
 
 ## Running the unit test suite
 

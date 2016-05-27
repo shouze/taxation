@@ -36,7 +36,7 @@ TaxRateResolverInterface class:
     /**
      * Constant TaxRate resolver
      */
-    class ConstatntTaxRateResolver implements TaxRateREsolverInterface
+    class ConstantTaxRateResolver implements TaxRateREsolverInterface
     {
         /**
          * @var float
